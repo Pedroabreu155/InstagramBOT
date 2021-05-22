@@ -1,0 +1,19 @@
+{
+  "name": "bot-instagram",
+  "version": "1.0.0",
+  "description": "### Bot que lê comentários do Instagram e faz contagem ###",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedroabreu155/InstagramBOT.git"
+  },
+  "author": "Pedro Abreu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pedroabreu155/InstagramBOT/issues"
+  },
+  "homepage": "https://github.com/Pedroabreu155/InstagramBOT#readme"
+}
