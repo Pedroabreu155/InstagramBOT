@@ -2,11 +2,25 @@ const puppeteer = require('puppeteer')
 
 
 async function start(){
+
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
-    await page.goto('https://www.instagram.com/p/CIUIwo8FUJc/')
 
-    
+   async function loadMoreComents(page, classSelector){
+        const moreCommentsBtn = await page.$(classSelector)//pega o botao q carrega mais comentários
+
+        if(moreCommentsBtn){
+            await moreCommentsBtn.click()
+            await page.waitFor(classSelector, {timeout: 4000})
+            await loadMoreComents(page, classSelector)
+        }
+    }
+
+
+    await page.goto('https://www.instagram.com/p/CO_cxkJpQBv/')
+    await loadMoreComents(page, '.dCJp8')
+
+
 }
 
 // const fakeNames = ['Pedro', 'Celia', 'marcos', 'marcia', 'tommy', 'fred', 'jessica', 'marcos', 'Pedro']
