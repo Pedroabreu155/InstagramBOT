@@ -14,8 +14,11 @@ function sort(countedNames){
     const nameEntries = []
 
     for(prop in countedNames){
-        console.log(prop)
+        // console.log(prop)
+        nameEntries.push([prop, countedNames[prop]])
     }
+
+    console.log(nameEntries)
 }
 // console.log(count(fakeNames))
-// sort(count(fakeNames))
+sort(count(fakeNames))
