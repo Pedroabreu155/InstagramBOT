@@ -1,10 +1,6 @@
 const puppeteer = require('puppeteer')
 
-
 async function start(){
-
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
 
     async function loadMoreComents(page, classSelector){
         const moreCommentsBtn = await page.$(classSelector)//pega o botao q carrega mais comentários
@@ -25,15 +21,20 @@ async function start(){
         return comments
     }
 
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
     await page.goto('https://www.instagram.com/p/CO_cxkJpQBv/')
+
     await loadMoreComents(page, '.dCJp8')
     const comments = await getComments(page, '.C4VMK span a')
 
-    console.log(comments)
+    const countedComments = count(comments)
+    const sortedComments = sort(countedComments)
+
+    sortedComments.forEach(comment => console.log(comment))
+
+    await browser.close()
 }
-
-// const fakeNames = ['Pedro', 'Celia', 'marcos', 'marcia', 'tommy', 'fred', 'jessica', 'marcos', 'Pedro']
-
 
 function count(names){
     const count = {}
@@ -42,7 +43,6 @@ function count(names){
 
     return count
 }
-
 
 function sort(countedNames){
     const nameEntries = []
@@ -53,9 +53,7 @@ function sort(countedNames){
     }
 
     const sorted = nameEntries.sort((a, b) => b[1] - a[1])
-    // console.log(nameEntries)
+    return sorted
 }
-// console.log(count(fakeNames))
-// sort(count(fakeNames))
 
 start()
