@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Pedroabreu155/InstagramBOT/issues"
   },
-  "homepage": "https://github.com/Pedroabreu155/InstagramBOT#readme"
+  "homepage": "https://github.com/Pedroabreu155/InstagramBOT#readme",
+  "dependencies": {
+    "puppeteer": "^9.1.1"
+  }
 }

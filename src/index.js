@@ -1,4 +1,15 @@
-const fakeNames = ['Pedro', 'Celia', 'marcia', 'tommy', 'fred', 'jessica', 'marcos', 'Pedro']
+const puppeteer = require('puppeteer')
+
+
+async function start(){
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    await page.goto('https://www.instagram.com/p/CIUIwo8FUJc/')
+
+    
+}
+
+// const fakeNames = ['Pedro', 'Celia', 'marcos', 'marcia', 'tommy', 'fred', 'jessica', 'marcos', 'Pedro']
 
 
 function count(names){
@@ -18,9 +29,8 @@ function sort(countedNames){
         nameEntries.push([prop, countedNames[prop]])
     }
 
-    // console.log(nameEntries)
-
     const sorted = nameEntries.sort((a, b) => b[1] - a[1])
+    // console.log(nameEntries)
 }
 // console.log(count(fakeNames))
 sort(count(fakeNames))
